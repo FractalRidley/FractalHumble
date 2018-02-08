@@ -61,28 +61,35 @@
         <a href="https://github.com/"><p>Github</p></a>
       </div>
     </div>
-      <script>
+    <script>
     // Get clock element
     const clock = document.getElementById('clock')
+
     // Check time every half second
     function getTime() {
       let time = new Date()
       let hours = time.getHours()
       let minutes = time.getMinutes()
       let seconds = time.getSeconds()
+      hours = formatTime(hours)
       minutes = formatTime(minutes)
       seconds = formatTime(seconds)
       clock.innerHTML = `${hours}:${minutes}:${seconds}`
       setTimeout(getTime, 500)
     }
+
     // If minute or second is less than 10 add zero to beginning
     function formatTime(i) {
-      if (i < 10) {
+      if (i === 0) {
+        i = '0' + i
+      } else if (i < 10) {
         i = '0' + i
       }
       return i
     }
+
     getTime()
+
   </script>
   </body>
 </html>
