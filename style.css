@@ -5,11 +5,11 @@ body {
 
 h3 {
   color: #ebdbb2;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Ubuntu','Roboto Mono', monospace;
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Ubuntu','Pacifico', cursive;
   text-align: center;
   color: #ebdbb2;
   font-size: 90;
