@@ -71,3 +71,9 @@ list {
   background-color: #ebdbb2;
   width: 12em;
 }
+#weather {
+  position: absolute;
+  font-size: 4em;
+  top: 1%;
+  left: 1%;
+}
