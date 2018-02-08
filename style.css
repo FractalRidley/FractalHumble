@@ -74,6 +74,6 @@ list {
 #weather {
   position: absolute;
   font-size: 4em;
-  top: 0%;
+  top: -5%;
   left: 1%;
 }
