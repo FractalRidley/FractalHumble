@@ -7,6 +7,7 @@
   <body>
     <br>
     <h1 id="clock"></h1>
+    <h1 id="weather"></h1>
     <div class="all">
       <div class="title google"><h3>Video</h3></div>
       <div class="links">
@@ -57,9 +58,14 @@
         <a href="https://github.com/"><p>Github</p></a>
       </div>
     </div>
-    <script>
-    // Get clock element
+      <script>
+    // Settings
+    var latitude = '45.6852120'
+    var longitude = '-111.0861710'
+
+    // Cache Dom
     const clock = document.getElementById('clock')
+    const weather = document.getElementById('weather')
 
     // Check time every half second
     function getTime() {
@@ -84,7 +90,31 @@
       return i
     }
 
+    // Get weather
+    function getWeather() {
+      var location = `${latitude},${longitude}`
+      var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/92449d3236ac2864dea3ca4532cf9c4a/" + location + "?exclude=minutely,hourly,daily,alerts,flags"
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', url)
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+      xhr.onload = function () {
+        if (this.status == 200) {
+          var json = JSON.parse(this.response)
+          var temp = json.currently.temperature
+          renderTemp(temp)
+        }
+      }
+      xhr.send()
+    }
+
+    function renderTemp(temp) {
+      var temp = Math.round(temp) + '&deg;'
+      weather.innerHTML = temp
+    }
+
+    // Init
     getTime()
+    getWeather()
 
   </script>
   </body>
